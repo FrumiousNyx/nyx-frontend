@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYX — Product</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header class="nyx-header">
+    <div class="nyx-logo">
+      <img src="./assets/images/logo-nyx.svg" alt="NYX" />
+    </div>
+    <nav class="nyx-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+    <div class="nyx-actions">
+      <a href="cart.html" class="nyx-icon-btn">🛒</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="nyx-section nyx-product">
+      <div id="product-image" class="nyx-product-image"></div>
+      <div class="nyx-product-info">
+        <h1 id="product-name"></h1>
+        <p id="product-price" class="nyx-product-price"></p>
+        <p id="product-desc" class="nyx-product-desc"></p>
+
+        <div class="nyx-product-actions">
+          <label>
+            Qty
+            <input type="number" id="product-qty" value="1" min="1" />
+          </label>
+          <button id="add-to-cart" class="nyx-btn nyx-btn-primary">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="nyx-footer">
+    <span>© 2026 NYX.</span>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+  <script src="./assets/api.js"></script>
+  <script src="./assets/cart.js"></script>
+  <script src="./assets/product.js"></script>
+</body>
+</html>

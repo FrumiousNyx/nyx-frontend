@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYX — Shop</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header class="nyx-header">
+    <div class="nyx-logo">
+      <img src="./assets/images/logo-nyx.svg" alt="NYX" />
+    </div>
+    <nav class="nyx-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+    <div class="nyx-actions">
+      <a href="auth.html" class="nyx-link">Login</a>
+      <a href="cart.html" class="nyx-icon-btn">🛒</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="nyx-section">
+      <h1>All Products</h1>
+      <p class="nyx-subtitle">Baju & tas dari koleksi NYX.</p>
+
+      <div id="product-list" class="nyx-grid nyx-grid--shop">
+        <!-- akan diisi JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="nyx-footer">
+    <span>© 2026 NYX.</span>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+  <script src="./assets/api.js"></script>
+  <script src="./assets/shop.js"></script>
+</body>
+</html>

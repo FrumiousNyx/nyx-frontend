@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYX — Cart</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header class="nyx-header">
+    <div class="nyx-logo">
+      <img src="./assets/images/logo-nyx.svg" alt="NYX" />
+    </div>
+    <nav class="nyx-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+    <div class="nyx-actions">
+      <a href="cart.html" class="nyx-icon-btn">🛒</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="nyx-section">
+      <h1>Your Cart</h1>
+      <p class="nyx-subtitle">Produk yang sudah kamu tambahkan.</p>
+
+      <div id="cart-empty" style="display:none;">
+        <p>Keranjang masih kosong.</p>
+      </div>
+
+      <div id="cart-items" class="nyx-cart-list"></div>
+
+      <div id="cart-summary" class="nyx-cart-summary" style="display:none;">
+        <div class="nyx-cart-total-row">
+          <span>Total</span>
+          <span id="cart-total"></span>
+        </div>
+        <button id="cart-checkout" class="nyx-btn nyx-btn-primary">
+          Checkout (dummy)
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="nyx-footer">
+    <span>© 2026 NYX.</span>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+  <script src="./assets/cart.js"></script>
+  <script src="./assets/cart-page.js"></script>
+</body>
+</html>
