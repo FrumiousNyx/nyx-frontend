@@ -413,6 +413,22 @@ main {
 
   .nyx-hero {
     grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .nyx-hero-text h1 {
+    font-size: 1.9rem;
+  }
+
+  .nyx-hero-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .nyx-hero-image img {
+    max-height: 360px;
+    object-fit: cover;
+    border-radius: 16px;
   }
 
   .nyx-product {
