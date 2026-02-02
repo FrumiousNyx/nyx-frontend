@@ -9,26 +9,34 @@
 </head>
 <body>
   <header class="nyx-header">
-    <div class="nyx-logo">
-      <a href="index.html"><img src="./assets/images/logo-nyx.svg" alt="NYX" /></a>
-    </div>
+    <!-- Logo dihapus supaya pojok kiri kosong / bersih -->
+    <!-- <div class="nyx-logo">
+      <a href="index.html">
+        <img src="./assets/images/logo-nyx.svg" alt="NYX" />
+      </a>
+    </div> -->
+
     <nav class="nyx-nav">
       <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
     </nav>
+
     <div class="nyx-actions">
-      <div id="auth-action"></div>
-      <a href="cart.html" class="nyx-icon-btn" style="position:relative;">
+      <!-- Login / user pill -->
+      <button id="auth-action" class="nyx-link nyx-auth-pill" type="button"></button>
+
+      <!-- Cart -->
+      <a href="cart.html" class="nyx-icon-btn nyx-cart-btn">
         🛒
         <span
           class="cart-badge"
           style="
             position: absolute;
-            top: -8px;
-            right: -8px;
-            background: red;
-            color: white;
-            border-radius: 50%;
+            top: -6px;
+            right: -6px;
+            background: #ef4444;
+            color: #ffffff;
+            border-radius: 999px;
             width: 18px;
             height: 18px;
             display: none;
@@ -53,13 +61,12 @@
         </div>
       </div>
       <div class="nyx-hero-image">
-        <!-- ganti tee-1 menjadi bag-1 -->
         <img src="./assets/images/bag-1.jpg" alt="NYX woven leather bag" />
       </div>
     </section>
   </main>
 
-  <script src="./assets/app.js"></script>
   <script src="./assets/cart.js"></script>
+  <script src="./assets/app.js"></script>
 </body>
 </html>

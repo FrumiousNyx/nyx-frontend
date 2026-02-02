@@ -53,7 +53,7 @@ h6 {
   color: #111827;
 }
 
-/* ========== HEADER (tanpa blur berat) ========== */
+/* ========== HEADER (fixed, tanpa logo kiri) ========== */
 .nyx-header {
   position: fixed;
   top: 0;
@@ -67,16 +67,6 @@ h6 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   z-index: 100;
   min-height: 52px;
-}
-
-/* logo kiri */
-.nyx-logo {
-  position: absolute;
-  left: 5vw;
-}
-
-.nyx-logo img {
-  height: 28px;
 }
 
 /* nav di tengah */
@@ -137,7 +127,7 @@ h6 {
 
 /* ========== LAYOUT UMUM ========== */
 main {
-  padding: 72px 5vw 40px; /* 72px untuk offset tinggi header fixed */
+  padding: 72px 5vw 40px; /* offset tinggi header fixed */
 }
 
 .nyx-section h1 {
@@ -461,20 +451,47 @@ main {
   text-align: center;
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========== RESPONSIVE (MOBILE) ========== */
 @media (max-width: 768px) {
+  /* offset main sama dengan tinggi header */
   main {
-    padding: 72px 5vw 32px;
+    padding: 68px 16px 32px;
+  }
+
+  .nyx-header {
+    padding-inline: 16px;
+  }
+
+  .nyx-actions {
+    right: 16px;
+    gap: 8px;
+  }
+
+  .nyx-auth-pill {
+    padding: 4px 10px;
+    font-size: 0.78rem;
   }
 
   .nyx-hero {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 24px;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .nyx-hero-text h1 {
+    font-size: 1.9rem;
+    line-height: 1.2;
   }
 
   .nyx-hero-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
     margin-inline: auto;
+  }
+
+  .nyx-hero-cta {
+    justify-content: center;
   }
 
   .nyx-hero-image img {
@@ -484,7 +501,7 @@ main {
   }
 
   .nyx-nav {
-    display: none;
+    display: none; /* nanti bisa diganti hamburger */
   }
 
   .nyx-product {
