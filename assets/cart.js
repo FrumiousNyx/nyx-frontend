@@ -4,13 +4,13 @@ function getCart() {
   try {
     const raw = localStorage.getItem(CART_KEY);
     return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
+  } catch { return []; }
 }
 
 function saveCart(items) {
   localStorage.setItem(CART_KEY, JSON.stringify(items));
+  // Panggil update badge global jika tersedia
+  if (typeof updateCartBadge === "function") updateCartBadge();
 }
 
 function addToCart(product, qty) {
@@ -33,6 +33,10 @@ function addToCart(product, qty) {
 function removeFromCart(id) {
   const items = getCart().filter((i) => String(i.id) !== String(id));
   saveCart(items);
+  // Re-render cart page if we are on cart.html
+  if (window.location.pathname.includes('cart.html')) {
+    location.reload(); 
+  }
   return items;
 }
 
@@ -40,14 +44,11 @@ function updateCartItemQty(id, newQty) {
   let items = getCart();
   const idx = items.findIndex((i) => String(i.id) === String(id));
   if (idx === -1) return items;
-
   if (newQty <= 0) {
-    // kalau 0 atau kurang, hapus item dari cart
     items.splice(idx, 1);
   } else {
     items[idx].qty = newQty;
   }
-
   saveCart(items);
   return items;
 }

@@ -5,47 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NYX — Cart</title>
   <link rel="stylesheet" href="./assets/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <header class="nyx-header">
     <div class="nyx-logo">
-      <img src="./assets/images/logo-nyx.svg" alt="NYX" />
+      <a href="index.html"><img src="./assets/images/logo-nyx.svg" alt="NYX" /></a>
     </div>
     <nav class="nyx-nav">
       <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
     </nav>
     <div class="nyx-actions">
-      <a href="cart.html" class="nyx-icon-btn">🛒</a>
+      <div id="auth-action"></div>
+      <a href="cart.html" class="nyx-icon-btn" style="position:relative;">
+        🛒 <span class="cart-badge" style="position:absolute; top:-8px; right:-8px; background:red; color:white; border-radius:50%; width:18px; height:18px; display:none; justify-content:center; align-items:center; font-size:10px;">0</span>
+      </a>
     </div>
   </header>
 
   <main>
     <section class="nyx-section">
       <h1>Your Cart</h1>
-      <p class="nyx-subtitle">Produk yang sudah kamu tambahkan.</p>
-
-      <div id="cart-empty" style="display:none;">
+      <div id="cart-empty" style="display:none; text-align:center; padding:50px;">
         <p>Keranjang masih kosong.</p>
+        <a href="shop.html" class="nyx-btn nyx-btn-primary">Mulai Belanja</a>
       </div>
 
       <div id="cart-items" class="nyx-cart-list"></div>
 
-      <div id="cart-summary" class="nyx-cart-summary" style="display:none;">
+      <div id="cart-summary" class="nyx-cart-summary" style="display:none; margin-top:20px;">
         <div class="nyx-cart-total-row">
-          <span>Total</span>
-          <span id="cart-total"></span>
+          <span>Total Keseluruhan:</span>
+          <span id="cart-total" style="font-size:1.5rem; color:#000;"></span>
         </div>
-        <button id="cart-checkout" class="nyx-btn nyx-btn-primary">
-          Checkout (dummy)
-        </button>
+        <button id="cart-checkout" class="nyx-btn nyx-btn-primary" style="width:100%; margin-top:20px;">Checkout Sekarang</button>
       </div>
     </section>
   </main>
-
-  <footer class="nyx-footer">
-    <span>© 2026 NYX.</span>
-  </footer>
 
   <script src="./assets/app.js"></script>
   <script src="./assets/cart.js"></script>

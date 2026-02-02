@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYX — Join Us</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header class="nyx-header">
+    <div class="nyx-logo">
+      <a href="index.html"><img src="./assets/images/logo-nyx.svg" alt="NYX" /></a>
+    </div>
+    <nav class="nyx-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <main class="nyx-auth-container" style="display:flex; justify-content:center; align-items:center; min-height:80vh;">
+    <div class="nyx-auth-box" style="background:white; padding:40px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.1); width:100%; max-width:400px;">
+      <div class="nyx-auth-tabs" style="display:flex; margin-bottom:20px; border-bottom:1px solid #eee;">
+        <button id="tab-login" class="active" style="flex:1; padding:10px; cursor:pointer; background:none; border:none; font-weight:bold;">Login</button>
+        <button id="tab-register" style="flex:1; padding:10px; cursor:pointer; background:none; border:none; font-weight:bold;">Register</button>
+      </div>
+
+      <form id="login-form" class="nyx-form" style="display:flex; flex-direction:column; gap:15px;">
+        <input type="email" id="login-email" placeholder="Email" required style="padding:12px; border:1px solid #ddd; border-radius:6px;" />
+        <input type="password" id="login-password" placeholder="Password" required style="padding:12px; border:1px solid #ddd; border-radius:6px;" />
+        <button type="submit" class="nyx-btn nyx-btn-primary">Sign In</button>
+      </form>
+
+      <form id="register-form" class="nyx-form" style="display:none; flex-direction:column; gap:15px;">
+        <input type="email" id="register-email" placeholder="Email" required style="padding:12px; border:1px solid #ddd; border-radius:6px;" />
+        <input type="password" id="register-password" placeholder="Password" required style="padding:12px; border:1px solid #ddd; border-radius:6px;" />
+        <button type="submit" class="nyx-btn nyx-btn-primary">Create Account</button>
+      </form>
+
+      <p id="auth-message" style="margin-top:20px; text-align:center; font-size:0.9rem; color:#666;"></p>
+    </div>
+  </main>
+
+  <script src="./assets/app.js"></script>
+  <script src="./assets/auth.js"></script>
+</body>
+</html>
