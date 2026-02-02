@@ -53,7 +53,7 @@ h6 {
   color: #111827;
 }
 
-/* ========== HEADER (fixed, tanpa logo kiri) ========== */
+/* ========== HEADER (fixed, tanpa blur) ========== */
 .nyx-header {
   position: fixed;
   top: 0;
@@ -67,6 +67,16 @@ h6 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   z-index: 100;
   min-height: 52px;
+}
+
+/* logo kiri */
+.nyx-logo {
+  position: absolute;
+  left: 5vw;
+}
+
+.nyx-logo img {
+  height: 28px;
 }
 
 /* nav di tengah */
@@ -460,6 +470,10 @@ main {
 
   .nyx-header {
     padding-inline: 16px;
+  }
+
+  .nyx-logo {
+    left: 16px;
   }
 
   .nyx-actions {
