@@ -1,7 +1,8 @@
 // Inisialisasi Supabase Global
 const { createClient } = supabase;
+
 const supabaseClient = createClient(
-  "https://wvvjlrfbseyieznqtptu.supabase.co", 
+  "https://wvvjlrfbseyieznqtptu.supabase.co",
   "sb_publishable_hMsFMuUOO_bnsmJpPyyZOA_CiPxTFzB"
 );
 
@@ -17,12 +18,17 @@ function updateUI() {
 
   if (authAction) {
     if (user) {
+      // tampilkan nama pendek + tombol logout
       authAction.innerHTML = `
-        <span class="user-email">${user.email.split('@')[0]}</span>
-        <button onclick="logout()" class="nyx-btn-logout">Logout</button>
+        <span>${user.email.split("@")[0]}</span>
+        <span style="opacity:.6;">Logout</span>
       `;
+      authAction.onclick = logout;
     } else {
-      authAction.innerHTML = `<a href="auth.html" class="nyx-link">Login</a>`;
+      authAction.textContent = "Login";
+      authAction.onclick = () => {
+        window.location.href = "auth.html";
+      };
     }
   }
 
@@ -34,7 +40,7 @@ function updateCartBadge() {
   // Pastikan getCart tersedia (dari cart.js)
   const items = typeof getCart === "function" ? getCart() : [];
   const count = items.reduce((total, item) => total + item.qty, 0);
-  
+
   if (badge) {
     badge.textContent = count;
     badge.style.display = count > 0 ? "flex" : "none";
@@ -42,13 +48,19 @@ function updateCartBadge() {
 }
 
 async function logout() {
-  await supabaseClient.auth.signOut();
+  try {
+    await supabaseClient.auth.signOut();
+  } catch (e) {
+    console.error("Logout error:", e);
+  }
   localStorage.removeItem("nyx_user");
   window.location.href = "index.html";
 }
 
+/* TOAST CLEAN */
 function showToast(message, duration = 2000) {
   let container = document.querySelector(".nyx-toast-container");
+
   if (!container) {
     container = document.createElement("div");
     container.className = "nyx-toast-container";
@@ -57,7 +69,10 @@ function showToast(message, duration = 2000) {
 
   const toast = document.createElement("div");
   toast.className = "nyx-toast";
-  toast.innerHTML = `<span>${message}</span><button>&times;</button>`;
+  toast.innerHTML = `
+    <span>${message}</span>
+    <button type="button" aria-label="Close toast">&times;</button>
+  `;
 
   const remove = () => {
     toast.classList.add("nyx-toast-hide");
@@ -65,6 +80,7 @@ function showToast(message, duration = 2000) {
   };
 
   toast.querySelector("button").addEventListener("click", remove);
+
   container.appendChild(toast);
   setTimeout(remove, duration);
 }

@@ -1,3 +1,7 @@
+/* APPLE-LIKE TYPOGRAPHY INTEGRATION
+   Menggunakan San Francisco sebagai prioritas utama dan sistem fallback modern.
+*/
+
 *,
 *::before,
 *::after {
@@ -6,78 +10,110 @@
   padding: 0;
 }
 
-/* BASE TYPOGRAPHY */
+/* BASE TYPOGRAPHY — Apple-like */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", "Helvetica", "Arial", "Segoe UI", Roboto, sans-serif;
   background: #f5f5f6;
-  color: #111827;
-  line-height: 1.5;
-  font-size: 15px;
-  letter-spacing: -0.01em;
+  color: #1d1d1f;
+  line-height: 1.47059;
+  font-size: 17px;
+  letter-spacing: -0.022em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Heading & emphasis ala Apple */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  color: #1d1d1f;
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.015em;
 }
 
+/* Navigasi & Link */
 .nyx-nav a,
 .nyx-link {
-  font-weight: 500;
-  letter-spacing: 0;
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  font-size: 14px;
+  text-decoration: none;
+  color: #4b5563;
+  transition: color 0.2s ease;
 }
 
-/* HEADER */
+.nyx-nav a:hover,
+.nyx-link:hover {
+  color: #111827;
+}
+
+/* ========== HEADER (tanpa blur berat) ========== */
 .nyx-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 5vw;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #e5e7eb;
-  z-index: 10;
+  justify-content: center;
+  padding: 10px 5vw;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 100;
+  min-height: 52px;
+}
+
+/* logo kiri */
+.nyx-logo {
+  position: absolute;
+  left: 5vw;
 }
 
 .nyx-logo img {
   height: 28px;
 }
 
+/* nav di tengah */
 .nyx-nav {
   display: flex;
-  gap: 18px;
-  font-size: 0.9rem;
+  gap: 24px;
 }
 
-.nyx-nav a {
-  text-decoration: none;
-  color: #4b5563;
-}
-
-.nyx-nav a:hover {
-  color: #111827;
-}
-
+/* actions (login + cart) di kanan */
 .nyx-actions {
+  position: absolute;
+  right: 5vw;
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
 }
 
-.nyx-link {
-  text-decoration: none;
-  color: #111827;
-  font-size: 0.9rem;
+/* pill kecil untuk Login / user di header */
+.nyx-auth-pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 0.82rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #1d1d1f;
 }
 
+.nyx-auth-pill:hover {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(248, 250, 252, 0.9);
+}
+
+/* ICON BUTTON (cart, dll.) */
 .nyx-icon-btn {
   display: inline-flex;
   align-items: center;
@@ -88,17 +124,25 @@ h6 {
   border: 1px solid #e5e7eb;
   background: #ffffff;
   text-decoration: none;
+  transition: background 0.2s ease;
 }
 
-/* LAYOUT UMUM */
+.nyx-icon-btn:hover {
+  background: #f3f4f6;
+}
+
+.nyx-cart-btn {
+  position: relative;
+}
+
+/* ========== LAYOUT UMUM ========== */
 main {
-  padding: 24px 5vw 40px;
+  padding: 72px 5vw 40px; /* 72px untuk offset tinggi header fixed */
 }
 
 .nyx-section h1 {
-  font-size: clamp(1.6rem, 2.2vw, 2rem);
-  margin-bottom: 10px;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 12px;
 }
 
 .nyx-section h2 {
@@ -107,52 +151,57 @@ main {
 }
 
 .nyx-subtitle {
-  font-size: 0.9rem;
-  color: #6b7280;
-  margin-bottom: 16px;
+  font-size: 1rem;
+  color: #6e6e73;
+  margin-bottom: 24px;
 }
 
-/* BUTTONS */
+/* ========== BUTTONS — Soft & Clean ========== */
 .nyx-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
   font-size: 0.9rem;
   text-decoration: none;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .nyx-btn-primary {
-  background: #111827;
+  background: #0071e3;
   color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
-/* HERO (INDEX) */
+.nyx-btn-primary:hover {
+  background: #0077ed;
+  transform: scale(1.02);
+}
+
+/* ========== HERO (INDEX) ========== */
 .nyx-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  gap: 32px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .nyx-hero-text h1 {
-  font-size: clamp(2.2rem, 4vw, 3rem);
-  letter-spacing: -0.04em;
-  margin-bottom: 12px;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 16px;
 }
 
 .nyx-hero-text p {
-  max-width: 420px;
-  color: #6b7280;
-  margin-bottom: 20px;
+  max-width: 450px;
+  color: #6e6e73;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
 }
 
 .nyx-hero-cta {
@@ -162,53 +211,52 @@ main {
 
 .nyx-hero-image img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 28px;
   object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
-/* GRID / CARDS (HOME & SHOP) */
+/* ========== GRID / CARDS (HOME & SHOP) ========== */
 .nyx-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
 }
 
 .nyx-card {
-  border-radius: 14px;
+  border-radius: 18px;
   overflow: hidden;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
-  transition: transform 0.12s ease, box-shadow 0.12s ease,
-    border-color 0.12s ease;
+  background: #ffffff;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nyx-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
-  border-color: #d1d5db;
-  background: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
 .nyx-card img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
 }
 
 .nyx-card-body {
-  padding: 10px 12px 12px;
+  padding: 16px;
 }
 
 .nyx-card-body h3 {
-  font-size: 0.95rem;
+  font-size: 1rem;
+  margin-bottom: 4px;
 }
 
 .nyx-card-body p {
   font-size: 0.85rem;
-  color: #6b7280;
+  color: #6e6e73;
 }
 
-/* PRODUCT DETAIL */
+/* ========== PRODUCT DETAIL ========== */
 .nyx-product {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -231,18 +279,18 @@ main {
 }
 
 .nyx-product-info h1 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 8px;
 }
 
 .nyx-product-price {
   font-weight: 600;
   margin-bottom: 10px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .nyx-product-desc {
-  color: #6b7280;
+  color: #6e6e73;
   font-size: 0.9rem;
   margin-bottom: 18px;
 }
@@ -260,7 +308,7 @@ main {
   border: 1px solid #e5e7eb;
 }
 
-/* CART PAGE */
+/* ========== CART PAGE ========== */
 .nyx-cart-list {
   display: flex;
   flex-direction: column;
@@ -291,17 +339,17 @@ main {
   width: 100%;
   height: 80px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .nyx-cart-info h3 {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   margin-bottom: 4px;
 }
 
 .nyx-cart-info p {
   font-size: 0.85rem;
-  color: #6b7280;
+  color: #6e6e73;
 }
 
 /* qty control */
@@ -360,12 +408,12 @@ main {
   letter-spacing: -0.02em;
 }
 
-/* TOAST */
+/* ========== TOAST ========== */
 .nyx-toast-container {
   position: fixed;
-  top: 16px;
+  top: 72px;       /* di bawah header fixed */
   right: 16px;
-  z-index: 50;
+  z-index: 200;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -385,6 +433,13 @@ main {
   box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
 }
 
+/* animasi hide toast */
+.nyx-toast-hide {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
 .nyx-toast span {
   margin-right: 12px;
 }
@@ -397,38 +452,39 @@ main {
   font-size: 0.8rem;
 }
 
-/* FOOTER */
+/* ========== FOOTER ========== */
 .nyx-footer {
-  padding: 16px 5vw 24px;
-  border-top: 1px solid #e5e7eb;
-  font-size: 0.8rem;
-  color: #9ca3af;
+  padding: 40px 5vw;
+  border-top: 1px solid #d2d2d7;
+  font-size: 0.75rem;
+  color: #6e6e73;
+  text-align: center;
 }
 
-/* RESPONSIVE */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   main {
-    padding-inline: 16px;
+    padding: 72px 5vw 32px;
   }
 
   .nyx-hero {
     grid-template-columns: 1fr;
-    row-gap: 20px;
-  }
-
-  .nyx-hero-text h1 {
-    font-size: 1.9rem;
+    text-align: center;
+    gap: 24px;
   }
 
   .nyx-hero-text p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    margin-inline: auto;
   }
 
   .nyx-hero-image img {
     max-height: 360px;
     object-fit: cover;
-    border-radius: 16px;
+    border-radius: 20px;
+  }
+
+  .nyx-nav {
+    display: none;
   }
 
   .nyx-product {
@@ -442,5 +498,10 @@ main {
 
   .nyx-cart-actions {
     align-items: flex-start;
+  }
+
+  .nyx-toast-container {
+    top: 64px;
+    right: 12px;
   }
 }
