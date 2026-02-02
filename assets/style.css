@@ -6,16 +6,34 @@
   padding: 0;
 }
 
+/* BASE TYPOGRAPHY */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f5f6;
   color: #111827;
   line-height: 1.5;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.nyx-nav a,
+.nyx-link {
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 /* HEADER */
-
 .nyx-header {
   position: sticky;
   top: 0;
@@ -73,15 +91,14 @@ body {
 }
 
 /* LAYOUT UMUM */
-
 main {
   padding: 24px 5vw 40px;
 }
 
 .nyx-section h1 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  margin-bottom: 10px;
+  letter-spacing: -0.04em;
 }
 
 .nyx-section h2 {
@@ -96,7 +113,6 @@ main {
 }
 
 /* BUTTONS */
-
 .nyx-btn {
   display: inline-flex;
   align-items: center;
@@ -107,15 +123,18 @@ main {
   cursor: pointer;
   font-size: 0.9rem;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .nyx-btn-primary {
   background: #111827;
   color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* HERO (INDEX) */
-
 .nyx-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
@@ -148,7 +167,6 @@ main {
 }
 
 /* GRID / CARDS (HOME & SHOP) */
-
 .nyx-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -191,7 +209,6 @@ main {
 }
 
 /* PRODUCT DETAIL */
-
 .nyx-product {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -221,6 +238,7 @@ main {
 .nyx-product-price {
   font-weight: 600;
   margin-bottom: 10px;
+  letter-spacing: -0.02em;
 }
 
 .nyx-product-desc {
@@ -243,7 +261,6 @@ main {
 }
 
 /* CART PAGE */
-
 .nyx-cart-list {
   display: flex;
   flex-direction: column;
@@ -288,7 +305,6 @@ main {
 }
 
 /* qty control */
-
 .nyx-cart-qty {
   display: inline-flex;
   align-items: center;
@@ -341,10 +357,10 @@ main {
   justify-content: space-between;
   margin-bottom: 10px;
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 /* TOAST */
-
 .nyx-toast-container {
   position: fixed;
   top: 16px;
@@ -382,7 +398,6 @@ main {
 }
 
 /* FOOTER */
-
 .nyx-footer {
   padding: 16px 5vw 24px;
   border-top: 1px solid #e5e7eb;
@@ -391,7 +406,6 @@ main {
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 768px) {
   main {
     padding-inline: 16px;
